@@ -51,6 +51,7 @@ func (c *Client) GetTrades(market string) ([]*orderbook.Trade, error) {
 }
 
 func (c *Client) GetOrders(userID int64) (*server.GetOrdersResponse, error) {
+
 	e := fmt.Sprintf("%s/order/%d", Endpoint, userID)
 	req, err := http.NewRequest(http.MethodGet, e, nil)
 	if err != nil {
