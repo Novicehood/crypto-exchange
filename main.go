@@ -4,9 +4,9 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/anthdm/crypto-exchange/client"
-	"github.com/anthdm/crypto-exchange/mm"
-	"github.com/anthdm/crypto-exchange/server"
+	"github.com/Novicehood/crypto-exchange/client"
+	"github.com/Novicehood/crypto-exchange/mm"
+	"github.com/Novicehood/crypto-exchange/server"
 )
 
 func main() {

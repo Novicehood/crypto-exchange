@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"math"
 	"net/http"
 
-	"github.com/anthdm/crypto-exchange/orderbook"
-	"github.com/anthdm/crypto-exchange/server"
+	"github.com/Novicehood/crypto-exchange/orderbook"
+	"github.com/Novicehood/crypto-exchange/server"
 )
 
 const Endpoint = "http://localhost:3000"
@@ -194,4 +195,27 @@ func (c *Client) PlaceLimitOrder(p *PlaceOrderParams) (*server.PlaceOrderRespons
 	}
 
 	return placeOrderResponse, nil
+}
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func isValidBST(root *TreeNode) bool {
+	leftBound := math.MinInt
+	var inOrderBST func(node *TreeNode) bool
+	inOrderBST = func(node *TreeNode) bool {
+		if node == nil {
+			return true
+		}
+		lres := inOrderBST(node.Left)
+		if !lres || leftBound >= node.Val {
+			return false
+		}
+		leftBound = node.Val
+		return inOrderBST(node.Right)
+	}
+	return inOrderBST(root)
 }

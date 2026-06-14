@@ -3,7 +3,7 @@ package mm
 import (
 	"time"
 
-	"github.com/anthdm/crypto-exchange/client"
+	"github.com/Novicehood/crypto-exchange/client"
 	"github.com/sirupsen/logrus"
 )
 
