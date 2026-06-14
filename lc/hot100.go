@@ -108,6 +108,18 @@ func trap(height []int) (ans int) {
 	return
 }
 
+func subarraySum(nums []int, k int) (ans int) {
+	mp := map[int]int{}
+	sum := 0
+	mp[0] = 1
+	for i := range nums {
+		sum += nums[i]
+		ans += mp[sum-k]
+		mp[sum]++
+	}
+	return
+}
+
 func main() {
 	res := longestConsecutive([]int{1, 0, 1, 2})
 	fmt.Println(res)
